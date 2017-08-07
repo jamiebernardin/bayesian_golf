@@ -1,11 +1,15 @@
 
 
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+import numpy as np
+import pandas as pd
+pd.set_option('max_rows', 1000)
+pd.set_option('max_columns', 50)
 from sqlalchemy import create_engine
 import psycopg2 as pq
-import pandas as pd
-import numpy as np
 golf_db = 'postgresql://localhost:5432/golf'
-
+golf_engine = create_engine(golf_db)
 
 def scale_plot_size(factor=1.5):
     import matplotlib as mpl
