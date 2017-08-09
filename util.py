@@ -35,4 +35,9 @@ def np_to_sql(arr, table):
 def np_from_sql(sqlTxt, params=None):
     return pd_from_sql(sqlTxt, params).as_matrix()
 
+
+def create_stat(parm, i, offset):
+    i += offset
+    return (round(parm[i][0],3), round(parm[i][1],3), round(parm[i][2],3))
+
 scale_plot_size(1.5)
