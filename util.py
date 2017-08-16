@@ -22,6 +22,11 @@ def exec_sql(sqlTxt, result=False):
             cursor.execute(sqlTxt) 
             if result:
                 return [row for row in cursor] 
+            
+def insert_sql(sqlTxt, params):  
+    with pq.connect(golf_db) as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(sqlTxt, params) 
         
 def pd_from_sql(sqlTxt, params = None):
     with pq.connect(golf_db) as conn:
