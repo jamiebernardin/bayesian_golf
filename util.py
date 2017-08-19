@@ -45,4 +45,13 @@ def create_stat(parm, i, offset):
     i += offset
     return (round(parm[i][0],3), round(parm[i][1],3), round(parm[i][2],3))
 
+def get_players(top = 50):
+    sql_txt = '''
+        select name 
+        from stats_view
+        where year = 2016
+        limit %s;
+    '''
+    return pd_from_sql(sql_txt, [top])['name'].as_matrix().tolist()
+
 scale_plot_size(1.5)
